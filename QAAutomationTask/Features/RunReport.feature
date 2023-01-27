@@ -16,6 +16,6 @@ Scenario: Remove events
 	Given I login to the CRM demo site
 	When I navigate to Reports & Settings
 	When I click the Activity log
-	And I select the first 3 items in the table
+	And I select the first three items in the table
 	When I delete these actions
 	Then I should verify these items are deleted

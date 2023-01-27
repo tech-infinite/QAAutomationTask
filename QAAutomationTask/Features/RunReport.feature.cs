@@ -163,7 +163,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("I click the Activity log", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 19
- testRunner.And("I select the first 3 items in the table", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I select the first three items in the table", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 20
  testRunner.When("I delete these actions", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");

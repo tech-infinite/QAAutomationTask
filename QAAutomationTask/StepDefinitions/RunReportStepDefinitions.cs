@@ -1,4 +1,5 @@
 using LivingDoc.Dtos;
+using OpenQA.Selenium;
 using QAAutomationTask.Page_Objects;
 using System;
 using TechTalk.SpecFlow;
@@ -68,22 +69,23 @@ namespace QAAutomationTask.StepDefinitions
         }
 
 
-        [When(@"I select the first (.*) items in the table")]
-        public void WhenISelectTheFirstItemsInTheTable(int p0)
+        [When(@"I select the first three items in the table")]
+        public void WhenISelectTheFirstThreeItemsInTheTable()
         {
-           
+            _reports.SelectItemsOnComboBoxes();
         }
-        
+
+
         [When(@"I delete these actions")]
         public void WhenIDeleteTheseActions()
         {
-            
+          
         }
 
         [Then(@"I should verify these items are deleted")]
         public void ThenIShouldVerifyTheseItemsAreDeleted()
         {
-            
+            _reports.VerifyItemsAreDeleted();
         }
 
 

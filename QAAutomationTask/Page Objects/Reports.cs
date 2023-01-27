@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using System;
@@ -14,27 +15,29 @@ namespace QAAutomationTask.Page_Objects
         
           // Web elements
         private IWebElement lnkReports => driver.FindElement(By.XPath("/html/body/nav/div[2]/div[6]/div[1]/a"));
-        // private IWebElement inputSearchFilter => driver.FindElement(By.XPath("//*[@id='listView-8884-FilterFormfilter_text-input']"));
-        // #listView-7bb4-FilterForm_applyButton
-        private IWebElement btnRunReport => driver.FindElement(By.Name("FilterForm_applyButton"));
-
-       
+        private IWebElement btnRunReport => driver.FindElement(By.Name("FilterForm_applyButton"));    
         private IWebElement listViewNameLink => driver.FindElement(By.ClassName("listViewNameLink"));
         private IWebElement lblActivityLog => driver.FindElement(By.XPath("//span[@class='subtab-icon input-icon module-ActivityLog']"));
         private IWebElement lblAction => driver.FindElement(By.Id("listView-2765-ActionButtonHead"));
         private IWebElement reportNavBar => driver.FindElement(By.XPath("//*[@id=\'left-sidebar\']/div[2]/a"));
         private IWebElement searchBarReport => driver.FindElement(By.XPath("//*[@id=\'filter_text\']"));
 
+        private IWebElement actionButton => driver.FindElement(By.Id("listView-e595-ActionButtonHead"));
+        private IWebElement checkBox1 => driver.FindElement(By.XPath("//*[@id=\'listView-aee1-main\']/tbody/tr[1]/td[1]/div/input"));
+        private IWebElement checkBox2 => driver.FindElement(By.XPath("//*[@id=\'listView-aee1-main\']/tbody/tr[2]/td[1]/div/input"));
+        private IWebElement checkBox3 => driver.FindElement(By.XPath("//*[@id=\'listView-aee1-main\']/tbody/tr[3]/td[1]/div/input"));
+
         // Methods
 
         public void NavigateToReportsAndSettings() 
         {
             Thread.Sleep(1000);
-            var element = driver.FindElement(By.XPath("//*[@id='grouptab-5']"));
+            var element = driver.FindElement(By.ClassName("mouseonly.menu-tab.reports-settings.current"));
             Actions action = new Actions(driver);
             action.MoveToElement(element).Perform();
             Thread.Sleep(1000);
             lnkReports.Click();
+            
         }
 
         public void SelectReportNavbar() 
@@ -56,10 +59,7 @@ namespace QAAutomationTask.Page_Objects
         public void RunReport() 
         {
             Thread.Sleep(1000);
-
-           
             Actions action = new Actions(driver);
-            // //*[@id="listView-d9f3-main"]/tbody/tr/td[1]/div
             var element = driver.FindElement(By.Name("mass[]"));
             action.MoveToElement(element).Perform();
             Thread.Sleep(1000);
@@ -71,7 +71,9 @@ namespace QAAutomationTask.Page_Objects
 
         public void NavigateToActivityLog() 
         {
+            NavigateToReportsAndSettings();
             lblActivityLog.Click();
+            Assert.AreEqual("Activity Log", false);
         }
 
         public void VerifyResultsOfTheRun() 
@@ -81,20 +83,21 @@ namespace QAAutomationTask.Page_Objects
 
         public void SelectItemsOnComboBoxes() 
         {
-            List<IWebElement> checkList = (List<IWebElement>)driver.FindElement(By.ClassName("listViewTd listViewMeta"));
-            for (int i = 0; i < checkList.Count; i++)
-            {
+            bool isCheckBoxSelected = false;
 
+            if (!isCheckBoxSelected)
+            {
+                checkBox1.Click();
+                checkBox2.Click();
+                checkBox3.Click();
             }
-            
-            // cb3 = //*[@id="listView-aee1-main"]/tbody/tr[3]/td[1]/div/input
-            // cb2 = //*[@id="listView-aee1-main"]/tbody/tr[2]/td[1]/div/input
-            //cb1 = //*[@id="listView-aee1-main"]/tbody/tr[1]/td[1]/div/input
+           
+     
         }
 
-        public static void DeleteSelectedItems() 
+        public void DeleteSelectedItems() 
         {
-
+            
         }
 
         public void VerifyItemsAreDeleted() 
