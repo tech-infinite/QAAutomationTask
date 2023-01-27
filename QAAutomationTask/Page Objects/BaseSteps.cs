@@ -13,7 +13,7 @@ namespace QAAutomationTask.StepDefinitions
 {
     public class BaseSteps
     {
-        public IWebDriver _driver = new ChromeDriver();
+        public IWebDriver _driver;
         public string url = "https://demo.1crmcloud.com/";
         public BaseSteps()
         {

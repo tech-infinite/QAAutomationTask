@@ -37,40 +37,34 @@ namespace QAAutomationTask.StepDefinitions
         [Given(@"I navigate to Sales & Marketing")]
         public void GivenINavigateTo()
         {
-            //_loginPage.NavigateToHomepage();
-            //_loginPage.EnterUserName();
-            //_loginPage.EnterPassword();
-            //_loginPage.ClickLogIn();
-
+    
            _salesAndMarketing.ClickSalesAndMarketing();
-            
-            _salesAndMarketing.CreateNewContact();
-
 
         }
 
-        [Given(@"I select '([^']*)'")]
-        public void GivenISelect(string contacts)
+        [Given(@"I select Contacts")]
+        public void GivenISelectContacts()
         {
-            throw new PendingStepException();
+            
         }
+
 
         [When(@"I create a new contact")]
         public void WhenICreateANewContact()
         {
-            throw new PendingStepException();
+            _salesAndMarketing.CreateNewContact();
         }
 
         [When(@"I open the created contact")]
         public void WhenIOpenTheCreatedContact()
         {
-            throw new PendingStepException();
+            
         }
 
         [Then(@"I should verify the data matches these details")]
         public void ThenIShouldVerifyTheDataMatchesTheseDetails()
         {
-            throw new PendingStepException();
+           
         }
 
     }

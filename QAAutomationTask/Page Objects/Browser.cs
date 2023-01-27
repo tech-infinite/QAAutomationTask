@@ -28,7 +28,6 @@ namespace QAAutomationTask.Page_Objects
             if (_driver != null)
             {
                 _driver.Close();
-                //driver.Dispose();
                 _driver.Quit();
             }
         }

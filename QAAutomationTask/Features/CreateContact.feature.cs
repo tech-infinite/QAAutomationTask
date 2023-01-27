@@ -109,7 +109,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And("I navigate to Sales & Marketing", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 9
- testRunner.And("I select \'Contacts\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I select Contacts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 10
  testRunner.When("I create a new contact", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
